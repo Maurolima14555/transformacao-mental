@@ -1123,6 +1123,76 @@
     }
 
     /* ============================================
+       LEAD CAPTURE SECTION
+    ============================================ */
+    .lead-capture {
+      padding: 96px 0;
+      background: var(--bg-card-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .lead-capture__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .lead-capture__title {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .lead-capture__desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .lead-capture__bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .lead-capture__bullets li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    .lead-capture__bullets li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(39,174,96,0.1) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M2 5l2.5 2.5L8 2.5' stroke='%2327AE60' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/10px no-repeat;
+      border: 1px solid rgba(39,174,96,0.25);
+    }
+
+    .lead-capture__form {
+      background: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      border-radius: 16px;
+      padding: 8px;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.3);
+    }
+
+    @media (max-width: 900px) {
+      .lead-capture__inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    /* ============================================
        SCROLL FADE-IN ANIMATION
     ============================================ */
     .fade-up {
@@ -1626,6 +1696,35 @@
           <div class="pricing__guarantee-text">
             <strong>Garantia incondicional de 7 dias.</strong> Se não sentir transformação, devolvemos 100% do seu investimento — sem perguntas.
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== LEAD CAPTURE =================== -->
+  <section class="lead-capture" id="capitulo-gratis" aria-labelledby="lead-capture-title">
+    <div class="container">
+      <div class="lead-capture__inner">
+        <div class="lead-capture__text">
+          <span class="section-label">Grátis para Começar</span>
+          <h2 class="lead-capture__title" id="lead-capture-title">
+            Receba o 1º Capítulo<br>antes de decidir
+          </h2>
+          <p class="lead-capture__desc">
+            Entra o teu email e recebe imediatamente o primeiro capítulo do método — sem compromisso. Vê se ressoa contigo antes de qualquer compra.
+          </p>
+          <ul class="lead-capture__bullets">
+            <li>Acesso imediato no teu email</li>
+            <li>Sem spam, cancelas quando quiseres</li>
+            <li>Mais de 150 pessoas já receberam</li>
+          </ul>
+        </div>
+        <div class="lead-capture__form">
+          <iframe width="100%" height="320"
+            src="https://27e43497.sibforms.com/serve/MUIFAM2N86L8klOnPmf3A9lOaGZUzhCX-uGnzRZ1c_4UtgyQqnehiDTmDCeCOM2HzxWKn6TV2z6P7jNlZQrHGtGHDDwFUB8blIT56tkLHQwAwrGGWSXml3zZBsWHXKToNjl802FMiZdb0Z1I9UdTIRFOWzqvz_ynQMExcS69RZHadJ7RFrh9M-bll33_gk7svLYCaY86jXacwRUoyQ=="
+            frameborder="0" scrolling="no" allowfullscreen
+            style="display:block; border-radius:12px; border: 1px solid rgba(201,168,76,0.2);">
+          </iframe>
         </div>
       </div>
     </div>
