@@ -2374,6 +2374,69 @@
 
     const statsSection = document.querySelector('.stats__grid');
     if (statsSection) statsObserver.observe(statsSection);
+
+    /* ============================================
+       CHECKOUT BUTTONS — MODO TESTE
+       Quando tiveres o link da Kiwify, substitui
+       CHECKOUT_URL abaixo pelo link real.
+    ============================================ */
+    const CHECKOUT_URL = '#'; // ← COLA O LINK DA KIWIFY AQUI
+
+    // Modal overlay
+    const modal = document.createElement('div');
+    modal.id = 'checkout-modal';
+    modal.innerHTML = `
+      <div class="checkout-modal__overlay">
+        <div class="checkout-modal__box">
+          <div class="checkout-modal__icon">✅</div>
+          <h3 class="checkout-modal__title">Botão funcionando!</h3>
+          <p class="checkout-modal__desc">
+            Este botão está pronto.<br>
+            Quando criares o produto na <strong>Kiwify</strong>, cola o link de checkout no código e todos os botões ficam ativos automaticamente.
+          </p>
+          <div class="checkout-modal__code">
+            <code>const CHECKOUT_URL = '<span id="modal-url-hint">https://pay.kiwify.com.br/SEU-LINK</span>';</code>
+          </div>
+          <button class="checkout-modal__close" onclick="document.getElementById('checkout-modal').style.display='none'">Fechar</button>
+        </div>
+      </div>
+    `;
+
+    const modalStyle = document.createElement('style');
+    modalStyle.textContent = `
+      #checkout-modal { display:none; position:fixed; inset:0; z-index:9999; }
+      .checkout-modal__overlay { position:absolute; inset:0; background:rgba(0,0,0,0.85); display:flex; align-items:center; justify-content:center; padding:24px; }
+      .checkout-modal__box { background:#0F0F1A; border:1px solid rgba(201,168,76,0.4); border-radius:20px; padding:40px 36px; max-width:480px; width:100%; text-align:center; position:relative; }
+      .checkout-modal__box::before { content:''; position:absolute; top:0;left:0;right:0;height:3px; background:linear-gradient(90deg,transparent,#C9A84C,transparent); border-radius:20px 20px 0 0; }
+      .checkout-modal__icon { font-size:3rem; margin-bottom:16px; }
+      .checkout-modal__title { font-family:'Playfair Display',serif; font-size:1.6rem; color:#F0EDE6; margin-bottom:12px; }
+      .checkout-modal__desc { color:#A89F8C; line-height:1.7; margin-bottom:24px; font-size:0.95rem; }
+      .checkout-modal__desc strong { color:#C9A84C; }
+      .checkout-modal__code { background:#09090F; border:1px solid rgba(201,168,76,0.2); border-radius:8px; padding:14px 16px; margin-bottom:28px; font-size:0.78rem; color:#C9A84C; text-align:left; overflow:auto; }
+      .checkout-modal__close { background:linear-gradient(135deg,#C9A84C,#E2C97E); color:#09090F; border:none; padding:14px 36px; border-radius:8px; font-weight:700; font-size:0.88rem; cursor:pointer; letter-spacing:0.06em; text-transform:uppercase; }
+    `;
+
+    document.head.appendChild(modalStyle);
+    document.body.appendChild(modal);
+
+    // Intercept all checkout buttons
+    document.querySelectorAll('a[href="#CHECKOUT_LINK"], a[href="#checkout_link"]').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        if (CHECKOUT_URL === '#' || CHECKOUT_URL === '') {
+          e.preventDefault();
+          document.getElementById('checkout-modal').style.display = 'block';
+        } else {
+          btn.href = CHECKOUT_URL;
+        }
+      });
+    });
+
+    // Also update all href dynamically if URL is set
+    if (CHECKOUT_URL !== '#' && CHECKOUT_URL !== '') {
+      document.querySelectorAll('a[href="#CHECKOUT_LINK"]').forEach(btn => {
+        btn.href = CHECKOUT_URL;
+      });
+    }
   </script>
 
 </body>
