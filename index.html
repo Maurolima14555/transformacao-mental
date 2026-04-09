@@ -812,33 +812,43 @@
     /* ============================================
        SHOP — PRODUTOS INDIVIDUAIS + BUNDLE
     ============================================ */
-    .shop { padding: 96px 0; background: var(--bg-deep); }
+    .shop { padding: 96px 0; background: #07070f; }
     .shop__header { text-align: center; margin-bottom: 16px; }
     .shop__title { font-family: 'Playfair Display', serif; font-size: clamp(28px,4vw,42px); color: var(--text-primary); margin-bottom: 12px; }
     .shop__sub { color: var(--text-secondary); font-size: 16px; max-width: 520px; margin: 0 auto 56px; }
 
     /* Individual product grid */
-    .shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 24px; }
-    .shop-row2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 740px; margin: 0 auto 56px; }
+    .shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-bottom: 28px; }
+    .shop-row2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 760px; margin: 0 auto 56px; }
 
-    .shop-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: border-color .3s, transform .3s; }
-    .shop-card:hover { border-color: var(--border-strong); transform: translateY(-4px); }
-    .shop-card__img { width: 100%; aspect-ratio: 5/7; object-fit: contain; display: block; background: linear-gradient(145deg, #1a0a3a 0%, #2d1060 40%, #0d1a40 100%); padding: 18px 10px 8px; }
-    .shop-card__img-wrap { position: relative; background: linear-gradient(145deg, #1a0a3a 0%, #2d1060 40%, #0d1a40 100%); overflow: hidden; }
-    .shop-card__img-wrap::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 40%, rgba(160,80,255,0.35) 0%, transparent 65%), radial-gradient(ellipse at 30% 70%, rgba(80,120,255,0.2) 0%, transparent 55%); pointer-events: none; }
-    .shop-card__img--audio { aspect-ratio: 16/9; background: linear-gradient(135deg,#0a0a18,#131328); display: flex; align-items: center; justify-content: center; padding: 32px; }
-    .shop-card__img--video { aspect-ratio: 16/9; background: linear-gradient(135deg,#0f0a18,#1a0f30); display: flex; align-items: center; justify-content: center; padding: 32px; }
-    .shop-card__body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
-    .shop-card__tag { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); background: rgba(201,168,76,.1); border: 1px solid rgba(201,168,76,.2); border-radius: 20px; padding: 3px 10px; display: inline-block; margin-bottom: 10px; }
-    .shop-card__title { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--text-primary); margin-bottom: 8px; line-height: 1.4; }
-    .shop-card__desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; flex: 1; margin-bottom: 16px; }
-    .shop-card__tracks { list-style: none; margin-bottom: 16px; display: flex; flex-direction: column; gap: 4px; }
-    .shop-card__tracks li { font-size: 12px; color: var(--text-secondary); display: flex; gap: 8px; align-items: flex-start; }
-    .shop-card__tracks li::before { content: "▸"; color: var(--gold); flex-shrink: 0; margin-top: 1px; }
-    .shop-card__price { font-size: 22px; font-weight: 700; color: var(--gold); margin-bottom: 14px; }
-    .shop-card__price span { font-size: 13px; font-weight: 400; color: var(--text-muted); }
-    .btn-outline { display: block; text-align: center; padding: 10px 16px; border: 1px solid var(--gold); border-radius: 8px; color: var(--gold); font-size: 13px; font-weight: 600; text-decoration: none; transition: background .2s, color .2s; cursor: pointer; background: transparent; }
-    .btn-outline:hover { background: var(--gold); color: #09090F; }
+    /* CARD — fundo escuro com borda vibrante */
+    .shop-card { background: #0e0e1c; border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: transform .3s, box-shadow .3s; box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
+    .shop-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,200,100,0.15), 0 4px 16px rgba(0,0,0,0.5); border-color: rgba(0,200,100,0.3); }
+
+    /* IMAGEM — fundo branco/creme para o livro se destacar */
+    .shop-card__img-wrap { position: relative; background: linear-gradient(160deg, #f0ece8 0%, #e8e4f0 50%, #e4ecf8 100%); overflow: hidden; padding: 24px 16px 16px; display: flex; align-items: center; justify-content: center; min-height: 260px; }
+    .shop-card__img-wrap::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 40px; background: linear-gradient(to top, #0e0e1c, transparent); pointer-events: none; }
+    .shop-card__img { width: 85%; max-width: 200px; object-fit: contain; display: block; filter: drop-shadow(0 12px 28px rgba(0,0,0,0.55)) drop-shadow(0 4px 8px rgba(0,0,0,0.3)); transition: transform .3s; }
+    .shop-card:hover .shop-card__img { transform: scale(1.04) translateY(-4px); }
+
+    .shop-card__img--audio { min-height: 160px; background: linear-gradient(135deg,#0a1a0e,#0d2b12); display: flex; align-items: center; justify-content: center; padding: 32px; }
+    .shop-card__img--video { min-height: 160px; background: linear-gradient(135deg,#0a0f1a,#0d1530); display: flex; align-items: center; justify-content: center; padding: 32px; }
+
+    .shop-card__body { padding: 22px 20px 20px; flex: 1; display: flex; flex-direction: column; }
+    .shop-card__tag { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #00c864; background: rgba(0,200,100,.1); border: 1px solid rgba(0,200,100,.25); border-radius: 20px; padding: 3px 10px; display: inline-block; margin-bottom: 12px; }
+    .shop-card__title { font-family: 'Playfair Display', serif; font-size: 17px; color: #ffffff; margin-bottom: 8px; line-height: 1.4; }
+    .shop-card__desc { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.65; flex: 1; margin-bottom: 16px; }
+    .shop-card__tracks { list-style: none; margin-bottom: 16px; display: flex; flex-direction: column; gap: 5px; }
+    .shop-card__tracks li { font-size: 12px; color: rgba(255,255,255,0.5); display: flex; gap: 8px; align-items: flex-start; }
+    .shop-card__tracks li::before { content: "▸"; color: #00c864; flex-shrink: 0; margin-top: 1px; }
+
+    /* PREÇO em verde vibrante */
+    .shop-card__price { font-size: 26px; font-weight: 800; color: #00e676; margin-bottom: 14px; line-height: 1; }
+    .shop-card__price span { font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.35); display: block; margin-top: 2px; }
+
+    /* BOTÃO COMPRAR — verde sólido e chamativo */
+    .btn-outline { display: block; text-align: center; padding: 13px 16px; border-radius: 10px; font-size: 14px; font-weight: 700; text-decoration: none; cursor: pointer; letter-spacing: .03em; transition: all .2s; background: linear-gradient(135deg, #00c864, #00a050); color: #fff; border: none; box-shadow: 0 4px 16px rgba(0,200,100,0.35); }
+    .btn-outline:hover { background: linear-gradient(135deg, #00e676, #00c864); box-shadow: 0 6px 24px rgba(0,200,100,0.55); transform: translateY(-1px); color: #fff; }
 
     /* Bundle */
     .bundle-card { background: linear-gradient(135deg, #0f0f1e, #131328); border: 2px solid var(--gold); border-radius: 20px; padding: 48px; max-width: 760px; margin: 0 auto; position: relative; }
