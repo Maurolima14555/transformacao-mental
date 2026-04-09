@@ -823,7 +823,9 @@
 
     .shop-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: border-color .3s, transform .3s; }
     .shop-card:hover { border-color: var(--border-strong); transform: translateY(-4px); }
-    .shop-card__img { width: 100%; aspect-ratio: 5/7; object-fit: cover; display: block; }
+    .shop-card__img { width: 100%; aspect-ratio: 5/7; object-fit: contain; display: block; background: linear-gradient(145deg, #1a0a3a 0%, #2d1060 40%, #0d1a40 100%); padding: 18px 10px 8px; }
+    .shop-card__img-wrap { position: relative; background: linear-gradient(145deg, #1a0a3a 0%, #2d1060 40%, #0d1a40 100%); overflow: hidden; }
+    .shop-card__img-wrap::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 40%, rgba(160,80,255,0.35) 0%, transparent 65%), radial-gradient(ellipse at 30% 70%, rgba(80,120,255,0.2) 0%, transparent 55%); pointer-events: none; }
     .shop-card__img--audio { aspect-ratio: 16/9; background: linear-gradient(135deg,#0a0a18,#131328); display: flex; align-items: center; justify-content: center; padding: 32px; }
     .shop-card__img--video { aspect-ratio: 16/9; background: linear-gradient(135deg,#0f0a18,#1a0f30); display: flex; align-items: center; justify-content: center; padding: 32px; }
     .shop-card__body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
@@ -2085,7 +2087,9 @@
 
         <!-- Ebook 1 -->
         <div class="shop-card">
-          <img src="mockup_ebook1.png" alt="A Engenharia da Realidade" class="shop-card__img" loading="lazy" />
+          <div class="shop-card__img-wrap">
+            <img src="mockup_ebook1.png" alt="A Engenharia da Realidade" class="shop-card__img" loading="lazy" />
+          </div>
           <div class="shop-card__body">
             <span class="shop-card__tag">📚 Ebook</span>
             <h3 class="shop-card__title">A Engenharia da Realidade</h3>
@@ -2097,7 +2101,9 @@
 
         <!-- Ebook 2 -->
         <div class="shop-card">
-          <img src="mockup_ebook2.png" alt="Sua Mente Está Controlando Você" class="shop-card__img" loading="lazy" />
+          <div class="shop-card__img-wrap">
+            <img src="mockup_ebook2.png" alt="Sua Mente Está Controlando Você" class="shop-card__img" loading="lazy" />
+          </div>
           <div class="shop-card__body">
             <span class="shop-card__tag">📚 Ebook</span>
             <h3 class="shop-card__title">Sua Mente Está Controlando Você</h3>
@@ -2109,7 +2115,9 @@
 
         <!-- Ebook 3 -->
         <div class="shop-card">
-          <img src="mockup_ebook3.png" alt="Transformação Mental 360°" class="shop-card__img" loading="lazy" />
+          <div class="shop-card__img-wrap">
+            <img src="mockup_ebook3.png" alt="Transformação Mental 360°" class="shop-card__img" loading="lazy" />
+          </div>
           <div class="shop-card__body">
             <span class="shop-card__tag">📚 Ebook</span>
             <h3 class="shop-card__title">Transformação Mental 360°</h3>
