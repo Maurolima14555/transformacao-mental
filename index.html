@@ -825,11 +825,10 @@
     .shop-card { background: #0e0e1c; border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: transform .3s, box-shadow .3s; box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
     .shop-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,200,100,0.15), 0 4px 16px rgba(0,0,0,0.5); border-color: rgba(0,200,100,0.3); }
 
-    /* IMAGEM — fundo branco/creme para o livro se destacar */
-    .shop-card__img-wrap { position: relative; background: linear-gradient(160deg, #f0ece8 0%, #e8e4f0 50%, #e4ecf8 100%); overflow: hidden; padding: 24px 16px 16px; display: flex; align-items: center; justify-content: center; min-height: 260px; }
-    .shop-card__img-wrap::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 40px; background: linear-gradient(to top, #0e0e1c, transparent); pointer-events: none; }
-    .shop-card__img { width: 85%; max-width: 200px; object-fit: contain; display: block; filter: drop-shadow(0 12px 28px rgba(0,0,0,0.55)) drop-shadow(0 4px 8px rgba(0,0,0,0.3)); transition: transform .3s; }
-    .shop-card:hover .shop-card__img { transform: scale(1.04) translateY(-4px); }
+    /* IMAGEM — fundo branco puro, livro destaca-se */
+    .shop-card__img-wrap { position: relative; background: #ffffff; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 270px; border-bottom: 1px solid rgba(0,0,0,0.07); }
+    .shop-card__img { width: 88%; max-width: 210px; object-fit: contain; display: block; transition: transform .3s; }
+    .shop-card:hover .shop-card__img { transform: scale(1.05) translateY(-5px); }
 
     .shop-card__img--audio { min-height: 160px; background: linear-gradient(135deg,#0a1a0e,#0d2b12); display: flex; align-items: center; justify-content: center; padding: 32px; }
     .shop-card__img--video { min-height: 160px; background: linear-gradient(135deg,#0a0f1a,#0d1530); display: flex; align-items: center; justify-content: center; padding: 32px; }
@@ -2203,6 +2202,11 @@
         <div class="bundle-badge">⭐ MELHOR OFERTA — ECONOMIZE R$68</div>
         <h3 class="bundle-card__title">Bundle Completo — Tudo em Um</h3>
         <p class="bundle-card__sub">Todos os 23 materiais por um único preço com desconto exclusivo</p>
+
+        <!-- Spread visual de todos os produtos -->
+        <div style="margin:-8px -16px 28px;border-radius:12px;overflow:hidden;background:#fff;">
+          <img src="bundle_spread.png" alt="Todos os produtos incluídos" style="width:100%;display:block;max-height:280px;object-fit:contain;" />
+        </div>
 
         <div class="bundle-includes">
           <div class="bundle-includes__item">
